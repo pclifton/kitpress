@@ -1,0 +1,12 @@
+
+local-hostname: amazonlinux.onprem
+
+# Configure eth1 for host-only network. eth0 will default to DHCP+NAT and
+# provide outside internets access.
+network-interfaces: |
+ iface eth1 inet static
+ address 192.168.56.10
+ network 192.168.56.0
+ netmask 255.255.255.0
+ broadcast 192.168.56.255
+ gateway 192.168.56.1
