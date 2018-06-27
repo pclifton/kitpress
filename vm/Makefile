@@ -20,7 +20,6 @@ install: uninstall get-image
 # Download the AMZ VDI if needed
 get-image:
 	@if [ ! -f "$(PWD)/canonical/$(VM_IMG_FILE)" ]; then \
-	   echo "File exists."; \
 	   curl $(VM_IMG_URL) -o $(PWD)/canonical/$(VM_IMG_FILE); \
 	fi \
 	
