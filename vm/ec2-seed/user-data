@@ -7,3 +7,57 @@ users:
     ssh-authorized-keys:
             - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbUrdXeyrCYJd0We13QQ9E2JFTOasezVlJqHG+4mfElxI7mmRxcorX41lKFDDZVYihQtR7910ErGhDSWPYjYmi0aU5GcrYZ32QaC4RBkjEYAYtpIcgzyMmXfo9L9wqplaPq41l2dbJC3J7ARsyErqPw5wP/JSSzKFxS5EQyuqptm0PwKi3DY4OynaQ3xL52wYmxiMyPkZ1A0X9uDHlY+sUqYKhRXNmgHnSZUU1BAIAybgxUo5zw3VVpn7bl+6f+p8HIlpMwNLWmfNasGzk6dFlFXFV6xKqNbx60WfYVHomlOG/JQVIc/C8rWzOyzBXAquuFYzz/be7Xri1nqHPtGij
     lock_passwd: true
+
+# Install prefab host keys; this prevents needing to clean up known_hosts each
+# time a new VM is fired up
+ssh_keys:
+  rsa_private: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAoqCwwl2BFmWX+aEtRGZy4HA/CeVbc7Ud6bNOmBmhktlMCoUY
+    NukLm5gXUXgsuoiN/2tghcvUI9rZWjaVyony3prfnweGVJqXOhNG3LELrZbTbx/3
+    3GMRbma+GIPXj6o4A0bgrGmx+sFCpvmcVpKfHVgS1W6wyvnmXQBfnoiffJLMoQBh
+    xikBAzn+9/+kByij8SLRAJoOm5iou0TZrWVHDZ8yklKZeNW1JR0dbEIdPu6lKMBw
+    bFoI7kYOTjRncFlpHEHma8W3sTM2KoCJ2LHiQ2jvwz+cvyytGLVbAIoDVbkN9O1G
+    QCg93uEGFkxj1q6WNsOaay5zeY+udplg0Iw+twIDAQABAoIBAAnBL7kI2MRaJaqA
+    g3GV35Acy3sxebHQDFJHQhCXgPyI8imzYAdzJRIZJlTpq20o4bOPYkPEPR5Fc0IZ
+    AhUa/ylhCsbEMceDWkzOeTKln/iykk4ZEcnzW0lO+loIFnb0k9WGe9V7pYRP8UqI
+    sFr1AnxFGyQYNpyGLs4nRpUAxug24XqVwFP/yzVAHjNtIMePyJJAyxQ2Yr+FTomP
+    8GGj7OV3VrKhceb3MnlYBkOt6/ELvArcOlIW7a8i//fLiNbf9vcIeFunyeqM66SK
+    aNxpJCOhaNoRqT4c4WwJHYICuDYh1IdSUBt1iT0lIUyqdAX0hKEt2sLKp7WezlsE
+    uE3MA/ECgYEAzmqEiOYc5oa2a2xeoi+LfaMo6q+rmqAL+th72qD6tMmxxMM7Tn0J
+    mvAFpkpmf2LeP9R0IdnjOlbvEkgu5eItFP9ZzLDDF7PmxjNBGkrNV2pakJF2An4Q
+    K0xSInEotgtoMVaWZXGuM/8JS2nlbmWx9x6pdI+3DFDBOFC5owl1do8CgYEAybFr
+    9nUbVC7M8OWbp1dIvbbNErrbX92W1a9OgLyOGADVx0pcOU70Dzs+9KTwamoN2aqA
+    +t4vtP5SBzzz8lKIbGdxz5ynODnPD/GkzoQPGOWW1suCqbQLzPTLUV0nt+gsFtQ0
+    68MadQXqdK3Z20zfidGKwAcBwexnTsJ9pP9FCVkCgYEAp7KqUn6BZFh1w/ibObDe
+    5wezqldmV41HrlhK52h5xn9GydDDUhULxLDUJjGz7DJq1fjJEOdwUGloebXjRCjo
+    73I1hrLlDVC/YK8raSz0ftyND37eHVBF2qd64ziEFsJVuB/cuDYPjXbaGkbCe1pr
+    p5VlnqlT0dGZ6SLMbsS0hckCgYAaFp3tYhZn3CncGwb4LT0WdPevrYXEr6fb+fIA
+    iuMiTbFZNtAZBZJiCfrJsC/8w70I45oNWQH4ulCn6QVw2aYVx4ecIBotFqUm3c3A
+    fKprQP8yx14eT1CbcSp/WrpRenGBfm9d832Pl3VNJFOinx3m+LimwAFFMSvnrxaL
+    ag1m+QKBgCT6zkezyFJZ3/LSRieaIk5TNL7iyEsb9w98DIjJUa/JISrWmMI+zmkW
+    hRxow5cX7Epgb+nGpR9sjq8Xz49Ns6A+H17ajgUOE45awqfRYsxeGzBlCNDM90ao
+    qLuIe4n3o2CX9pyTuz0N+5T8I5QBr4M/4So2uo7R9XFBANYjp9vO
+    -----END RSA PRIVATE KEY-----
+
+  rsa_public: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCioLDCXYEWZZf5oS1EZnLgcD8J5VtztR3ps06YGaGS2UwKhRg26QubmBdReCy6iI3/a2CFy9Qj2tlaNpXKifLemt+fB4ZUmpc6E0bcsQutltNvH/fcYxFuZr4Yg9ePqjgDRuCsabH6wUKm+ZxWkp8dWBLVbrDK+eZdAF+eiJ98ksyhAGHGKQEDOf73/6QHKKPxItEAmg6bmKi7RNmtZUcNnzKSUpl41bUlHR1sQh0+7qUowHBsWgjuRg5ONGdwWWkcQeZrxbexMzYqgInYseJDaO/DP5y/LK0YtVsAigNVuQ307UZAKD3e4QYWTGPWrpY2w5prLnN5j652mWDQjD63
+
+  ecdsa_private: |
+    -----BEGIN EC PRIVATE KEY-----
+    MHcCAQEEIFihgu7HbisDICRcIitoGkwXYNgw82DdtCkykrHwx2fEoAoGCCqGSM49
+    AwEHoUQDQgAEYVtL3mBj/AAGRHBoeqXiNw9zn1Jh/WWhe/EY116A/zY+H4P3PNg3
+    kqIxeycQDdmHcT+YpknKJ8CS0azKbqugOg==
+    -----END EC PRIVATE KEY-----
+
+  ecdsa_public: ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGFbS95gY/wABkRwaHql4jcPc59SYf1loXvxGNdegP82Ph+D9zzYN5KiMXsnEA3Zh3E/mKZJyifAktGsym6roDo=
+  
+  ed25519_private: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+    QyNTUxOQAAACAjE9xEUxqp9ECkhjk08/4z/pRllNifBOAmOGchDDoAJAAAAIi6owD0uqMA
+    9AAAAAtzc2gtZWQyNTUxOQAAACAjE9xEUxqp9ECkhjk08/4z/pRllNifBOAmOGchDDoAJA
+    AAAEDB4IHlqgxTXsA+//fH7gnz925NEtFyXiFgemm/PcYZNCMT3ERTGqn0QKSGOTTz/jP+
+    lGWU2J8E4CY4ZyEMOgAkAAAAAAECAwQF
+    -----END OPENSSH PRIVATE KEY-----
+
+  ed_25519_public: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMT3ERTGqn0QKSGOTTz/jP+lGWU2J8E4CY4ZyEMOgAk
