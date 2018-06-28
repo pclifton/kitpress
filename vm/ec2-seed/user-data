@@ -7,6 +7,12 @@ users:
     ssh-authorized-keys:
             - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbUrdXeyrCYJd0We13QQ9E2JFTOasezVlJqHG+4mfElxI7mmRxcorX41lKFDDZVYihQtR7910ErGhDSWPYjYmi0aU5GcrYZ32QaC4RBkjEYAYtpIcgzyMmXfo9L9wqplaPq41l2dbJC3J7ARsyErqPw5wP/JSSzKFxS5EQyuqptm0PwKi3DY4OynaQ3xL52wYmxiMyPkZ1A0X9uDHlY+sUqYKhRXNmgHnSZUU1BAIAybgxUo5zw3VVpn7bl+6f+p8HIlpMwNLWmfNasGzk6dFlFXFV6xKqNbx60WfYVHomlOG/JQVIc/C8rWzOyzBXAquuFYzz/be7Xri1nqHPtGij
     lock_passwd: true
+    
+# Set a plaintext password for ec2-user; this allows for logging in via the
+# console as a fallback for debugging/testing/etc
+chpasswd:
+  list: |
+    ec2-user:amazon
 
 # Install prefab host keys; this prevents needing to clean up known_hosts each
 # time a new VM is fired up
