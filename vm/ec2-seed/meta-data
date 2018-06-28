@@ -1,5 +1,5 @@
 
-local-hostname: amazonlinux.onprem
+local-hostname: kitpress-dev
 
 # Configure eth1 for host-only network. eth0 will default to DHCP+NAT and
 # provide outside internets access.
