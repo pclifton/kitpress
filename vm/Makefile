@@ -17,6 +17,9 @@ install: uninstall get-image
 	hdiutil makehybrid -o $(PWD)/build/init.iso -hfs -joliet -iso -default-volume-name cidata ec2-seed
 	VBoxManage storageattach kitpress-dev --storagectl IDE --port 1 --device 0 --type dvddrive --medium $(PWD)/build/init.iso
 	
+	# Start the VM
+	VBoxManage startvm kitpress-dev
+	
 # Download the AMZ VDI if needed
 get-image:
 	@if [ ! -f "$(PWD)/canonical/$(VM_IMG_FILE)" ]; then \
@@ -24,5 +27,6 @@ get-image:
 	fi \
 	
 uninstall:
+	-VBoxManage controlvm kitpress-dev poweroff
 	-VBoxManage unregistervm $(PWD)/build/kitpress-dev.vbox
 	rm -rf build
