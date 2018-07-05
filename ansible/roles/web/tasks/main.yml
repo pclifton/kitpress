@@ -1,0 +1,34 @@
+---
+# Set up webserver-y things
+
+- name: install php7
+  shell: amazon-linux-extras install php7.2 -y
+  become: yes
+
+- name: Install apache
+  yum:
+    name: httpd
+    state: latest
+  become: yes
+
+- name: Start/enable apache
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Assign ec2-user to apache group
+  shell: usermod -a -G apache ec2-user
+  become: yes
+
+- name: Fix webroot perms
+  file:
+    recurse: yes
+    path: /var/www
+    owner: ec2-user
+    group: apache
+    mode: '2775'
+  become: yes
+
+# TODO: install wordpress, composer, wp-config.php with env stuff

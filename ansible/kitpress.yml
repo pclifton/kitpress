@@ -1,0 +1,23 @@
+---
+# Note: this playbook will apply to all hosts by default, only concerning itself
+# with server roles. To limit deployment to a particular environment, use --limit
+# eg --limit dev or --limit prod
+
+
+- name: Apply common configuration to all nodes
+  hosts: all
+
+  roles:
+    - common
+
+- name: Set up webserver stuff
+  hosts: webservers
+
+  roles:
+    - web
+
+- name: Set up MySQL
+  hosts: dbservers
+
+  roles:
+    - db

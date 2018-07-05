@@ -1,0 +1,15 @@
+[dev]
+# TODO: set dev VM IP via env or something so ansible/VM setup can share
+192.168.56.10
+
+[prod]
+# TODO: get host(s) from AWS here
+
+[webservers]
+192.168.56.10
+# TODO this list should also include AWS host(s)
+
+[dbservers]
+# basically dev vm only
+# TODO again figure out how to use env or something here
+192.168.56.10
