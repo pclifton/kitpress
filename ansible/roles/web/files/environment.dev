@@ -1,0 +1,14 @@
+SERVER_TYPE = "dev"
+
+DB_USER = "root"
+DB_PASSWORD = ""
+DB_HOST = "localhost"
+
+WP_AUTH_KEY = "7HNHe!!mJ3^+jO?|r~2Y5-kxG!{+7VLvrmYU)x:VqFI`uW&iJD]Zy^4{_c$n^&S}"
+WP_SECURE_AUTH_KEY = "Wk^%i3JPkix$mV?~Bn-V])i!L+m+C?Z(!RZiU%XYgtZzE.zi$ZF2`{@VSW$wbDyc"
+WP_LOGGED_IN_KEY = "i{F[Rb5k.Es?f*+5|Byj6LiaW$Wb-gNQf:&%0~Ix; $r(=ofQQj(=_ro4Wq3C;H="
+WP_NONCE_KEY = "JF=cp-M`Rz2&[<x^~f<xYMLre#1/+O,S0kg #@qY]d~`^pvp%V[H|k}Q=&BO1/[n"
+WP_AUTH_SALT = "/HS9ydjm.-PK+f t7+qT;sIq:^CYV@ O%6ZQ|Z4v|**}:g[jaovt~Q c@^|!g-37"
+WP_SECURE_AUTH_SALT = "xsWC|y@)E~AodhCO;@qQ5G6tkV*00j_}P2wtC})GT+9Z 44#)2hURQH)<TXy^}W!"
+WP_LOGGED_IN_SALT = "ys6qGQKA<-$q45UJANO)G.x6P%MuRF3j(VQ*|0<OA|,4Q)&d8X#?+-P$UW]a#k}^"
+WP_NONCE_SALT = "-*%.-4WKS<[nL^oI:%^u*2}+fp}oa(*l,Wy1JoW+nFqO?drI/Bl6!ig$<w`$qX2f"

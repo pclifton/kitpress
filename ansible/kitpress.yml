@@ -21,3 +21,9 @@
 
   roles:
     - db
+
+- name: Set up WP server
+  hosts: all
+  
+  roles:
+    - wp

@@ -1,0 +1,30 @@
+---
+# Set up a kitpress WP server
+
+- name: install wp-cli
+  shell: wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
+  args:
+    warn: no
+    creates: /usr/local/bin/wp
+  become: yes
+
+# FIXME: should probably variablize the wp webroot here
+- name: install wordpress core
+  shell: wp core download --version=4.9.7 --path=/var/www/html/wp
+  args:
+    creates: /var/www/html/wp/license.txt
+
+- name: remove sample wp-config
+  file:
+    path: /var/www/html/wp/wp-config-sample.php
+    state: absent
+
+- name: install prod wp-config
+  copy:
+    src: wp-config.php
+    dest: /var/www/html/wp/wp-config.php
+
+- name: set up dotenv
+  shell: composer require vlucas/phpdotenv
+  args:
+    chdir: /var/www/html/wp

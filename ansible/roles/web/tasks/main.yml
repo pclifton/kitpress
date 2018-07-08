@@ -1,6 +1,13 @@
 ---
 # Set up webserver-y things
 
+# TODO: select dev/prod environment file as needed
+- name: set up env vars
+  copy:
+    src: environment.dev
+    dest: /etc/environment
+  become: yes
+
 - name: install php7
   shell: amazon-linux-extras install php7.2 -y
   become: yes
@@ -31,4 +38,6 @@
     mode: '2775'
   become: yes
 
-# TODO: install wordpress, composer, wp-config.php with env stuff
+- name: Install composer
+  script: install-composer.sh
+  become: yes
