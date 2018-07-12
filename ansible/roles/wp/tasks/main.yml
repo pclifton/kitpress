@@ -9,22 +9,39 @@
   become: yes
 
 # FIXME: should probably variablize the wp webroot here
+- name: create wp vhost dir
+  file:
+    path: /var/www/vhosts/wp
+    state: directory
+
+- name: install wp vhost config
+  template:
+    src: wp.vhost.conf.j2
+    dest: /etc/httpd/conf/vhosts.d/wp.conf
+  become: yes
+
 - name: install wordpress core
-  shell: wp core download --version=4.9.7 --path=/var/www/html/wp
+  shell: wp core download --version=4.9.7 --path=/var/www/vhosts/wp
   args:
-    creates: /var/www/html/wp/license.txt
+    creates: /var/www/vhosts/wp/license.txt
 
 - name: remove sample wp-config
   file:
-    path: /var/www/html/wp/wp-config-sample.php
+    path: /var/www/vhosts/wp/wp-config-sample.php
     state: absent
 
 - name: install prod wp-config
   copy:
     src: wp-config.php
-    dest: /var/www/html/wp/wp-config.php
+    dest: /var/www/vhosts/wp/wp-config.php
 
 - name: set up dotenv
   shell: composer require vlucas/phpdotenv
   args:
-    chdir: /var/www/html/wp
+    chdir: /var/www/vhosts/wp
+
+- name: Restart apache
+  service:
+    name: httpd
+    state: restarted
+  become: yes

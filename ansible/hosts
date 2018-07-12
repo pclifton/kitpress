@@ -2,6 +2,9 @@
 # TODO: set dev VM IP via env or something so ansible/VM setup can share
 192.168.56.10
 
+[dev:vars]
+hostname=kitpress-dev
+
 [prod]
 # TODO: get host(s) from AWS here
 
