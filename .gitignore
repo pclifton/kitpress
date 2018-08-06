@@ -1,3 +1,4 @@
 .DS_STORE
 vm/build
 vm/canonical/ec2-dev.vdi
+ansible/*.retry
