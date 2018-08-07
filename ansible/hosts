@@ -3,14 +3,21 @@
 192.168.56.10
 
 [dev:vars]
+type=dev
 hostname=kitpress-dev
 
 [prod]
 # TODO: get host(s) from AWS here
+18.220.70.57
+
+[prod:vars]
+type=prod
+hostname=kitpress.net
 
 [webservers]
 192.168.56.10
 # TODO this list should also include AWS host(s)
+18.220.70.57
 
 [dbservers]
 # basically dev vm only
