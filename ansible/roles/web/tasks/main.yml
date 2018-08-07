@@ -4,7 +4,7 @@
 # TODO: select dev/prod environment file as needed
 - name: set up env vars
   copy:
-    src: environment.dev
+    src: environment.{{type}}
     dest: /etc/environment
   become: yes
 
