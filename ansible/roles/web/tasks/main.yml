@@ -43,7 +43,6 @@
   file:
     path: /var/www/vhosts/default
     state: directory
-  become: yes
 
 - name: Remove old default webroot
   file:
