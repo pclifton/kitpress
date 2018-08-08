@@ -53,6 +53,11 @@ Listen 80
 # Example:
 # LoadModule foo_module modules/mod_foo.so
 #
+LoadModule rewrite_module modules/mod_rewrite.so
+
+#
+# Load config files from the config directory "/etc/httpd/conf.d".
+#
 Include conf.modules.d/*.conf
 
 #
@@ -122,7 +127,7 @@ DocumentRoot "/var/www/vhosts/default"
 # Relax access to content within /var/www.
 #
 <Directory "/var/www">
-    AllowOverride None
+    AllowOverride All
     # Allow open access:
     Require all granted
 </Directory>
