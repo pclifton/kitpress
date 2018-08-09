@@ -49,17 +49,44 @@
     path: /var/www/html
     state: absent
 
-- name: Start/enable apache
-  service:
-    name: httpd
-    state: started
-    enabled: yes
-  become: yes
-
 - name: Assign ec2-user to apache group
   shell: usermod -a -G apache ec2-user
   become: yes
 
 - name: Install composer
   script: install-composer.sh
+  become: yes
+
+- name: install wp-cli
+  shell: wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
+  args:
+    warn: no
+    creates: /usr/local/bin/wp
+  become: yes
+
+- name: install wordpress core
+  shell: wp core download --version=4.9.7 --path=/var/www/vhosts/default
+  args:
+    creates: /var/www/vhosts/default/license.txt
+
+- name: remove sample wp-config
+  file:
+    path: /var/www/vhosts/default/wp-config-sample.php
+    state: absent
+
+- name: install prod wp-config
+  copy:
+    src: wp-config.php
+    dest: /var/www/vhosts/default/wp-config.php
+
+- name: set up dotenv
+  shell: composer require vlucas/phpdotenv
+  args:
+    chdir: /var/www/vhosts/default
+
+- name: Start/enable apache
+  service:
+    name: httpd
+    state: started
+    enabled: yes
   become: yes
