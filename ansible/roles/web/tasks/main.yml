@@ -75,9 +75,14 @@
     state: absent
 
 - name: install prod wp-config
-  copy:
-    src: wp-config.php
+  template:
+    src: wp-config.php.j2
     dest: /var/www/vhosts/default/wp-config.php
+
+- name: install WP multisite htaccess
+  copy:
+    src: multisite.htaccess
+    dest: /var/www/vhosts/default/.htaccess
 
 - name: set up dotenv
   shell: composer require vlucas/phpdotenv

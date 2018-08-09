@@ -21,3 +21,9 @@
 
   roles:
     - db
+
+- name: Set up dev server stuff
+  hosts: dev
+  
+  roles:
+    - dev

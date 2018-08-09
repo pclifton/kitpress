@@ -1,0 +1,9 @@
+---
+# Set up dev server-specific things
+
+- name: Ensure WP is installed
+  script: ensure-wp-install.sh
+  args:
+    chdir: /var/www/vhosts/default
+  register: wp_result
+  changed_when: "'changed' in wp_result.stdout"
