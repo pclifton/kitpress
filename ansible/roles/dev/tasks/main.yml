@@ -7,3 +7,17 @@
     chdir: /var/www/vhosts/default
   register: wp_result
   changed_when: "'changed' in wp_result.stdout"
+
+- name: Ensure VirtualBox guest additions are installed
+  script: ensure-vbox-guest-additions-install.sh
+  register: vguest_result
+  changed_when: "'changed' in vguest_result.stdout"
+  become: yes
+
+- name: Assign ec2-user to vboxsf group
+  shell: usermod -a -G vboxsf ec2-user
+  become: yes
+
+- name: Assign apache user to vboxsf group
+  shell: usermod -a -G vboxsf apache
+  become: yes

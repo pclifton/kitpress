@@ -17,6 +17,8 @@ install: uninstall get-image
 	hdiutil makehybrid -o $(PWD)/build/init.iso -hfs -joliet -iso -default-volume-name cidata ec2-seed
 	VBoxManage storageattach kitpress-dev --storagectl IDE --port 1 --device 0 --type dvddrive --medium $(PWD)/build/init.iso
 	
+	# Set up shared folder for modules
+	VBoxManage sharedfolder add kitpress-dev --name kitpress-modules --hostpath "$(shell dirname "$(PWD)")/modules" --automount	
 	# Start the VM
 	VBoxManage startvm kitpress-dev
 	
