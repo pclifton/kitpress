@@ -3,7 +3,7 @@
 VM_IMG_FILE?= ec2-dev.vdi
 VM_IMG_URL?= https://cdn.amazonlinux.com/os-images/2017.12.0.20180330/virtualbox/amzn2-virtualbox-2017.12.0.20180330-x86_64.xfs.gpt.vdi
 
-install: uninstall get-image
+install: get-image
 	# copy VM files to build dir
 	cp -R canonical build
 	VBoxManage registervm $(PWD)/build/kitpress-dev.vbox
