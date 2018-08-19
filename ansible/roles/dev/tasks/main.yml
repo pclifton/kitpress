@@ -21,3 +21,11 @@
 - name: Assign apache user to vboxsf group
   shell: usermod -a -G vboxsf apache
   become: yes
+
+# If we did any guest addition setup, then we need to reboot
+- name: Reboot immediately if there was a change.
+  shell: "sleep 5 && reboot"
+  async: 1
+  poll: 0
+  when: vguest_result is changed
+  become: yes

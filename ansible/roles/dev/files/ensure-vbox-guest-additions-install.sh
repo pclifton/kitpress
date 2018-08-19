@@ -6,7 +6,7 @@ if [ "$(lsmod | grep vboxguest | wc -l)" -ne "0" ]; then
 fi
 
 # Install dependencies
-yum install -y gcc make perl kernel-devel-$(uname -r) dkms
+yum install -y gcc make perl kernel-devel dkms
 
 # Fetch guest additions ISO
 cd /tmp
@@ -24,8 +24,8 @@ mount -t iso9660 -o loop $isofile $isomount
 $isomount/VBoxLinuxAdditions.run
 
 # Clean up
-# umount $isomount
-# rm -rf $isofile
+umount $isomount
+rm -rf $isofile
 
 # Spit "changed" so ansible knows we did something
 echo "changed"

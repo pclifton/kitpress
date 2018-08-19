@@ -67,3 +67,6 @@ ssh_keys:
     -----END OPENSSH PRIVATE KEY-----
 
   ed_25519_public: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMT3ERTGqn0QKSGOTTz/jP+lGWU2J8E4CY4ZyEMOgAk
+
+runcmd:
+  - sleep 30 && reboot

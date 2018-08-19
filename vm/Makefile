@@ -18,7 +18,7 @@ install: get-image
 	VBoxManage storageattach kitpress-dev --storagectl IDE --port 1 --device 0 --type dvddrive --medium $(PWD)/build/init.iso
 	
 	# Set up shared folder for modules
-	VBoxManage sharedfolder add kitpress-dev --name kitpress-modules --hostpath "$(shell dirname "$(PWD)")/modules" --automount	
+	VBoxManage sharedfolder add kitpress-dev --name kitpress-modules --hostpath "$(shell dirname "$(PWD)")/modules" --automount
 	# Start the VM
 	VBoxManage startvm kitpress-dev
 	
@@ -30,5 +30,6 @@ get-image:
 	
 uninstall:
 	-VBoxManage controlvm kitpress-dev poweroff
+	sleep 1s
 	-VBoxManage unregistervm $(PWD)/build/kitpress-dev.vbox
 	rm -rf build
