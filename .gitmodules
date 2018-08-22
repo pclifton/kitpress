@@ -1,0 +1,3 @@
+[submodule "modules/kitpress-theme"]
+	path = modules/kitpress-theme
+	url = git@github.com:pclifton/kitpress-theme.git
