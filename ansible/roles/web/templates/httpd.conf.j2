@@ -374,4 +374,4 @@ IncludeOptional conf.d/*.conf
 </VirtualHost>
 
 # Load additional vhosts from vhosts.d
-IncludeOptional conf/vhosts.d/*.conf
+IncludeOptional /etc/httpd/conf/vhosts.d/[^.#]*[^~]
