@@ -20,7 +20,7 @@
 
 // Use dotenv for config stuff
 require_once(__DIR__ . '/vendor/autoload.php');
-$dotenv = new Dotenv\Dotenv('/etc', 'environment');
+$dotenv = Dotenv\Dotenv::create('/etc', 'environment');
 $dotenv->load();
 
 // ** MySQL settings - You can get this info from your web host ** //
