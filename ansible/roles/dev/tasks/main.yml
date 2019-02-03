@@ -1,13 +1,6 @@
 ---
 # Set up dev server-specific things
 
-- name: Ensure WP is installed
-  script: ensure-wp-install.sh
-  args:
-    chdir: /var/www/vhosts/default
-  register: wp_result
-  changed_when: "'changed' in wp_result.stdout"
-
 - name: Ensure VirtualBox guest additions are installed
   script: ensure-vbox-guest-additions-install.sh
   register: vguest_result
@@ -29,3 +22,15 @@
   poll: 0
   when: vguest_result is changed
   become: yes
+
+- name: Copy over bootstrap data
+  unarchive:
+    src: wp_bootstrap.tgz
+    dest: /home/ec2-user
+
+- name: Ensure WP is installed
+  script: ensure-wp-install.sh
+  args:
+    chdir: /var/www/vhosts/default
+  register: wp_result
+  changed_when: "'changed' in wp_result.stdout"
